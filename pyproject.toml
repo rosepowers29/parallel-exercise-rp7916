@@ -1,0 +1,55 @@
+[project]
+name = "parallel_heat"
+version = "0.1.0"
+description = "Code for threading / parallel assignment, using the heat equation."
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = ["numpy"]
+
+[dependency-groups]
+dev = ["ruff", "pytest", "ipykernel", "matplotlib", "psutil"]
+
+[build-system]
+requires = ["uv_build~=0.7.19"]
+build-backend = "uv_build"
+
+# [project.scripts]
+# cgol = "parallel_heat.cgol:run"
+
+
+[tool.ruff]
+line-length = 80
+
+[tool.ruff.lint]
+extend-select = [
+  "B",           # flake8-bugbear
+  "I",           # isort
+  "ARG",         # flake8-unused-arguments
+  "C4",          # flake8-comprehensions
+  "EM",          # flake8-errmsg
+  "ICN",         # flake8-import-conventions
+  "ISC",         # flake8-implicit-str-concat
+  "G",           # flake8-logging-format
+  "PGH",         # pygrep-hooks
+  "PIE",         # flake8-pie
+  "PL",          # pylint
+  "PT",          # flake8-pytest-style
+  "PTH",         # flake8-use-pathlib
+  "RET",         # flake8-return
+  "RUF",         # Ruff-specific
+  "SIM",         # flake8-simplify
+  "T20",         # flake8-print
+  "UP",          # pyupgrade
+  "YTT",         # flake8-2020
+  "EXE",         # flake8-executable
+  "NPY",         # NumPy specific rules
+  "PD",          # pandas-vet
+]
+
+[tool.ruff.lint.per-file-ignores]
+"*" = [
+  "PT003"        # pytest: explicit function scope
+]
+"**.ipynb" = ["T201"]
+"tests/**" = ["T201"]
+"tutorial/**" = ["T201"]

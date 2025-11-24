@@ -1,0 +1,21 @@
+name: Run Pytest
+
+on:
+  pull_request:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  Run-Pytest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v5
+      - name: Install uv
+        uses: astral-sh/setup-uv@v6
+      - name: Install project
+        run: uv sync
+      - name: run pytest
+        run: uv run pytest
