@@ -60,8 +60,6 @@ class DistributedDomain:
 
             self._pipes[proc_a].append(PipeInfo(link, True, conn_a, proc_b))
             self._pipes[proc_b].append(PipeInfo(link, False, conn_b, proc_a))
-            #test
-            print(self._pipes[0][0].remote_process)
 
 
     
